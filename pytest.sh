@@ -18,11 +18,6 @@ mkdir tests
 cd tests
 touch test_sample.py
 
-# content of test_sample.py
-def func(x):
-    return x + 1
-    
-def test_answer():
-    assert func(3) == 5
-
 pytest
+pytest -v  tests/test_sample.py
+pytest tests/test_sample.py::test_case1
