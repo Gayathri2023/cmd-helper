@@ -1,5 +1,5 @@
 🏗️ 1. Folder Structure (Industry Standard)
-
+```
 project/
 │
 ├── app/
@@ -28,3 +28,5 @@ project/
 │   │     test_regression_suite.py
 │   │
 │   └── conftest.py
+
+```
