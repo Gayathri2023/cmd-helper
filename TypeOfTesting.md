@@ -35,27 +35,28 @@ project/
 🧪 2. UNIT TEST (isolated logic)
 
 👉 Test only function (no DB, no API)
-
+```
 # tests/unit/test_user_service.py
 
 from app.services.user_service import get_full_name
 
 def test_get_full_name():
-    result = get_full_name("Ezhil", "Arasan")
-    assert result == "Ezhil Arasan"
-
+    result = get_full_name("Gayathri", "A")
+    assert result == "Gayathri A"
+```
 Example service:
 
 # app/services/user_service.py
-
+```
 def get_full_name(first, last):
     return f"{first} {last}"
+```
 🔗 3. INTEGRATION TEST (API + DB)
 
 👉 Tests interaction between components
 
 # tests/integration/test_user_api.py
-
+```
 from fastapi.testclient import TestClient
 from app.main import app
 
@@ -63,18 +64,19 @@ client = TestClient(app)
 
 def test_create_user():
     response = client.post("/users", json={
-        "name": "Ezhil",
-        "email": "test@mail.com"
+        "name": "Gayathri",
+        "email": "Devi"
     })
 
     assert response.status_code == 200
-    assert response.json()["name"] == "Ezhil"
+    assert response.json()["name"] == "Gayathri"
+```
 🏢 4. SYSTEM TEST (full backend system)
 
 👉 Runs full backend like real environment
 
 # tests/system/test_system_flow.py
-
+```
 import requests
 
 BASE_URL = "http://localhost:8000"
@@ -92,12 +94,13 @@ def test_full_backend_flow():
     # Fetch user
     res2 = requests.get(f"{BASE_URL}/users/{user_id}")
     assert res2.status_code == 200
+```
 🌐 5. E2E TEST (frontend + backend)
 
 👉 Real user journey (UI automation)
 
 # tests/e2e/test_user_journey.py
-
+```
 from playwright.sync_api import Page, expect
 
 def test_user_login_flow(page: Page):
@@ -109,12 +112,13 @@ def test_user_login_flow(page: Page):
 
     expect(page).to_have_url("https://example.com/dashboard")
     expect(page.locator("h1")).to_have_text("Dashboard")
+```
 🔁 6. REGRESSION TEST (critical flows)
 
 👉 Collection of important tests
 
 # tests/regression/test_regression_suite.py
-
+```
 import pytest
 from playwright.sync_api import Page, expect
 
@@ -133,11 +137,13 @@ def test_login_regression(page: Page):
 def test_dashboard_regression(page: Page):
     page.goto("https://example.com/dashboard")
     expect(page.locator("h1")).to_have_text("Dashboard")
-
+```
 Run only regression:
-
+```
 pytest -m regression
+```
 ⚙️ 7. conftest.py (shared setup)
+```
 import pytest
 from playwright.sync_api import sync_playwright
 
@@ -148,6 +154,7 @@ def page():
         page = browser.new_page()
         yield page
         browser.close()
+```
 🧠 Final Understanding (VERY IMPORTANT)
 Type	Scope	Speed	Example
 Unit	Function	⚡ Fast	get_full_name
