@@ -21,12 +21,15 @@ jobs:
 
       - name: 2. Install dependencies
         run: |
-          pip install ruff black isort
+          pip install ruff black isort pytest
 
-      - name: 3. Run Ruff
+      - name: 3. Run Unit test
+        run: pytest -v test_sample.py
+
+      - name: 4. Run Ruff
         run: ruff check .
 
-      - name: 4. Run isort
+      - name: 5. Run isort
         run: isort . --check-only --diff
 
       - name: 5. Run Black
