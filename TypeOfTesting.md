@@ -156,21 +156,20 @@ def page():
         browser.close()
 ```
 🧠 Final Understanding (VERY IMPORTANT)
+```
 Type	Scope	Speed	Example
 Unit	Function	⚡ Fast	get_full_name
 Integration	API + DB	⚡⚡	create user
 System	Full backend	⚡⚡⚡	API flow
 E2E	UI + Backend	🐢 Slow	login flow
 Regression	Critical flows set	Mixed	login + dashboard
+```
 🔥 Real Industry Insight (for you)
 
-Since you're a senior backend engineer:
-
 👉 Best practice:
-
+```
 70% Unit tests
 20% Integration
 5% System
 5% E2E
-
-👉 Regression = subset of all above
+```
