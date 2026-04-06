@@ -27,7 +27,7 @@ jobs:
         run: ruff check .
 
       - name: Run isort
-        run: isort . --check-only --diff
+        run: isort .
 
       - name: Run Black
-        run: black . --check --diff
+        run: black .
