@@ -13,21 +13,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: 1. Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
           cache: "pip"
 
-      - name: Install dependencies
+      - name: 2. Install dependencies
         run: |
           pip install ruff black isort
 
-      - name: Run Ruff
+      - name: 3. Run Ruff
         run: ruff check .
 
-      - name: Run isort
+      - name: 4. Run isort
         run: isort . --check-only --diff
 
-      - name: Run Black
+      - name: 5. Run Black
         run: black . --check --diff
