@@ -156,14 +156,15 @@ def page():
         browser.close()
 ```
 🧠 Final Understanding (VERY IMPORTANT)
-```
-Type	Scope	Speed	Example
-Unit	Function	⚡ Fast	get_full_name
-Integration	API + DB	⚡⚡	create user
-System	Full backend	⚡⚡⚡	API flow
-E2E	UI + Backend	🐢 Slow	login flow
-Regression	Critical flows set	Mixed	login + dashboard
-```
+
+| Type        | Scope              | Speed   | Example           |
+| ----------- | ------------------ | ------- | ----------------- |
+| Unit        | Function           | ⚡ Fast  | get_full_name     |
+| Integration | API + DB           | ⚡⚡      | create user       |
+| System      | Full backend       | ⚡⚡⚡     | API flow          |
+| E2E         | UI + Backend       | 🐢 Slow | login flow        |
+| Regression  | Critical flows set | Mixed   | login + dashboard |
+
 🔥 Real Industry Insight (for you)
 
 👉 Best practice:
