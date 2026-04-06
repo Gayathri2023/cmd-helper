@@ -1,0 +1,33 @@
+name: Python Lint
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install ruff black isort
+
+      - name: Run Ruff
+        run: ruff check .
+
+      - name: Run isort
+        run: isort . --check-only --diff
+
+      - name: Run Black
+        run: black . --check --diff
