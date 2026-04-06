@@ -1,6 +1,5 @@
 from playwright.sync_api import sync_playwright
 
-
 def test_e2e_frontend_backend():
     with sync_playwright() as p:
         request = p.request.new_context()
