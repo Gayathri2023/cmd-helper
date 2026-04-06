@@ -1,13 +1,16 @@
-name: Ruff
+name: Ruff Check
 on: [push, pull_request]
+
 jobs:
   ruff:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/ruff-action@v3
+      - name: Set up Python 3.13
+        uses: [actions/setup-python@v5](https://github.com)
         with:
-          # Optional: specify arguments (defaults to "check")
+          python-version: "3.13"
+      - uses: [astral-sh/ruff-action@v3](https://github.com/astral-sh/ruff-action)
+        with:
+          # Optional: specify arguments like --fix or --select
           args: "check"
-          # Optional: specify version (defaults to latest)
-          version: "latest"
