@@ -1,5 +1,5 @@
 import pytest
-
+import sys
 
 # -----------------------------
 # 1. Basic Function & Test
@@ -58,7 +58,6 @@ def test_skip():
 # -----------------------------
 # 6. Skip Based on Condition
 # -----------------------------
-import sys
 
 @pytest.mark.skipif(sys.version_info < (3, 8), reason="Requires Python 3.8+")
 def test_skip_condition():
